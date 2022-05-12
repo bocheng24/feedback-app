@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Ratings from './Ratings'
 
+import { motion, AnimatePresence } from 'framer-motion'
 import { FormWrapper } from '../styled/FormWrapper.styled'
 
 function Form({ feedbacks, setFeedbacks }) {
@@ -67,7 +68,18 @@ function Form({ feedbacks, setFeedbacks }) {
                 >Send</button>
             </form>
 
-            { message && <div className="message">{ message }</div> }
+            { message && (
+                <AnimatePresence>
+                    <motion.div key={1}
+                                initial={ {opacity: 0} }
+                                animate={ {opacity: 1} }
+                                exit={ {opacity: 0} }
+                    >
+                        <div className="message">{ message }</div>
+                    </motion.div>
+                </AnimatePresence>
+                ) 
+            }
         </FormWrapper>
     )
 }
