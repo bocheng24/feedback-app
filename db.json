@@ -1,21 +1,19 @@
 {
-    "feedbacks": [
-        {
-            "id": 1,
-            "rating": 10,
-            "text": "These chairs are plenty sturdy and sized for bigger folks. The backrest has a bit of an angle and very comfortable compared to more vertical designs."
-        },
-
-        {
-            "id": 2,
-            "rating": 7,
-            "text": "I was looking for a chair that would be easy to carry, strong enough to hold me and with at least one little accessory."
-        },
-
-        {
-            "id": 3,
-            "rating": 8,
-            "text": "I do like the mini arm cooler, just enough space to put a little bit of ice and a couple of cans of cold beer. The storage bag attached to the seat is perfect. We live in a big city so we take our dogs to the park often and when it is sunny we spend time soaking up the sun so this is perfect to put the dog's toys or other items for us while we are seated."
-        }
-    ]
+  "feedbacks": [
+    {
+      "id": 3,
+      "rating": 10,
+      "text": "These chairs are plenty sturdy and sized for bigger folks. The backrest has a bit of an angle and very comfortable compared to more vertical designs."
+    },
+    {
+      "rating": 9,
+      "text": "After the summer I will update my review if there are any changes.",
+      "id": 4
+    },
+    {
+      "rating": 10,
+      "text": "Best camping chair I've owned. I won't get specific with my dimensions but I'm a pretty big guy. Most chairs you find in stores are designed for skinny people whereas this chair works well with my large body.",
+      "id": 5
+    }
+  ]
 }
