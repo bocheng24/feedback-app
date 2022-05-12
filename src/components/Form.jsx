@@ -9,7 +9,12 @@ function Form() {
     const DEFAULT_RATING = 10
     const invalidMsg = 'Please enter at lease 10 characters'
 
-    const { handleAdd, handleEdit, feedbackEdit } = useContext(FeedbackContext)
+    const { 
+            handleAdd, 
+            handleEdit, 
+            feedbackEdit,
+            handleUpdate
+          } = useContext(FeedbackContext)
 
     const [inputText, setInputText] = useState('')
     const [btnDisable, setBtnDisable] = useState(false)
@@ -46,23 +51,20 @@ function Form() {
         if(inputText.trim().length < 10) {
             setBtnDisable(true)
             setMessage(invalidMsg)
-        } else if (!feedbackEdit.edited) {
-            const newFeedback = {
-                rating: userRating,
-                text: inputText
-            }
-
-            handleAdd(newFeedback)
-            setInputText('')
-        } else {
-            const item = {
-                id: feedbackEdit.item.id,
-                rating: userRating,
-                text: inputText
-            }
-            handleEdit(item)
         }
 
+        const newFeedback = {
+            rating: userRating,
+            text: inputText
+        }
+
+        if (!feedbackEdit.edited) {
+            handleAdd(newFeedback)
+        } else {
+            handleUpdate(feedbackEdit.item.id, newFeedback)
+        }
+        
+        setInputText('')
     }
 
     return (

@@ -1,3 +1,4 @@
+
 import { createContext, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -39,6 +40,19 @@ export const FeedbackProvider = ({ children }) => {
             edited: true
         })
     }
+
+    const handleUpdate = (id, updatedFeedback) => {
+        
+        setFeedbacks(prev => prev.map(
+            feedback => feedback.id === id ? { ...feedback, ...updatedFeedback } : feedback)
+        )
+
+        setFeedbackEdit({
+            item: {},
+            edited: false
+        })
+
+    }
     
     const value = {
         feedbacks,
@@ -46,6 +60,7 @@ export const FeedbackProvider = ({ children }) => {
         handleAdd,
         handleEdit,
         feedbackEdit,
+        handleUpdate,
     }
 
     return <FeedbackContext.Provider value={ value }>
