@@ -8,6 +8,10 @@ export const CardBox = styled.div`
     color: #000;
     width: 85%;
 
+    h3 {
+        margin-bottom: 20px;
+    }
+
     div {
         display: flex;
         justify-content: space-between;
@@ -43,4 +47,5 @@ export const CardBox = styled.div`
         max-width: 95%;
         line-height: 1.35;
     }
+
 `

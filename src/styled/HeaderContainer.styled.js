@@ -6,6 +6,7 @@ export const HeaderContainer = styled.div`
     justify-content: space-around;
     background-color: #2C3A47;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 
     a {
         text-decoration: none;
