@@ -1,9 +1,12 @@
-import React from 'react'
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 import Card from './Card'
 
-function FeedBacks({ feedbacks, setFeedbacks }) {
+function FeedBacks({ setFeedbacks }) {
 
-  return (
+    const { feedbacks } = useContext(FeedbackContext)
+
+    return (
     feedbacks.length > 0 ? (
         <div>
 
@@ -11,10 +14,9 @@ function FeedBacks({ feedbacks, setFeedbacks }) {
                 feedbacks.map(
                     feedback => (
                         <Card key={ feedback.id } 
-                              rating={ feedback.rating }
-                              text={ feedback.text }
-                              id={ feedback.id }
-                              setFeedbacks={ setFeedbacks }
+                                rating={ feedback.rating }
+                                text={ feedback.text }
+                                id={ feedback.id }
                         />
                     )
                 )
@@ -24,8 +26,8 @@ function FeedBacks({ feedbacks, setFeedbacks }) {
     ) : (
         <p style={ {marginTop: '35px'} }>No feedback yet...</p>
     )
-    
-  )
+
+    )
 }
 
 export default FeedBacks

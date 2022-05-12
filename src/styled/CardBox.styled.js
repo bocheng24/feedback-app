@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardBox = styled.div`
     margin-top: 35px;
-    padding: 20px 35px 35px 45px;
+    padding: 10px 35px 45px 45px;
     background-color: #fff;
     border-radius: 15px;
     color: #000;
@@ -12,11 +12,9 @@ export const CardBox = styled.div`
         margin-bottom: 20px;
     }
 
-    div {
+    .card {
         display: flex;
         justify-content: space-between;
-        margin-top: -12px;
-        margin-bottom: 20px;
     }
 
     div p {
@@ -30,15 +28,19 @@ export const CardBox = styled.div`
         justify-content: center;
         border-radius: 50%;
         border: 1px solid #fff;
-        margin-top: -20px;
-        margin-left: -60px;
+        transform: translate(-150%, -50%);
+    }
+
+    .btn-group {
+        // margin-right: -12px;
+        // margin-top: 5px;
     }
 
     button {
         cursor: pointer;
         border: none;
         background: none;
-        margin-right: -12px;
+        margin-left: 12px;
     }
 
     p {

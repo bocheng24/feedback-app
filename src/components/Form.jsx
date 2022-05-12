@@ -1,17 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Ratings from './Ratings'
+import FeedbackContext from '../context/FeedbackContext'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { FormWrapper } from '../styled/FormWrapper.styled'
 
-function Form({ feedbacks, setFeedbacks }) {
+function Form() {
     const DEFAULT_RATING = 10
     const invalidMsg = 'Please enter at lease 10 characters'
+
+    const { handleAdd, handleEdit, feedbackEdit } = useContext(FeedbackContext)
 
     const [inputText, setInputText] = useState('')
     const [btnDisable, setBtnDisable] = useState(false)
     const [userRating, setUserRating] = useState(DEFAULT_RATING)
     const [message, setMessage] = useState('')
+
+    useEffect(() => {
+        if (feedbackEdit.edited) {
+            setInputText(feedbackEdit.item.text)
+            setUserRating(feedbackEdit.item.rating)
+        }
+        
+    }, [feedbackEdit])
 
     const handleOnChange = e => {
 
@@ -35,16 +46,21 @@ function Form({ feedbacks, setFeedbacks }) {
         if(inputText.trim().length < 10) {
             setBtnDisable(true)
             setMessage(invalidMsg)
-        } else {
+        } else if (!feedbackEdit.edited) {
             const newFeedback = {
-                id: feedbacks.length + 1,
                 rating: userRating,
                 text: inputText
             }
 
-            setFeedbacks([newFeedback, ...feedbacks])
-
+            handleAdd(newFeedback)
             setInputText('')
+        } else {
+            const item = {
+                id: feedbackEdit.item.id,
+                rating: userRating,
+                text: inputText
+            }
+            handleEdit(item)
         }
 
     }

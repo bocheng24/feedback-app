@@ -13,9 +13,9 @@ function MainBody() {
 
     return (
     <Container>
-        <Form feedbacks={ feedbacks } setFeedbacks={ setFeedbacks } />
-        <Summary feedbacks={ feedbacks } /> 
-        <FeedBacks feedbacks={ feedbacks } setFeedbacks={ setFeedbacks }/>
+        <Form />
+        <Summary /> 
+        <FeedBacks setFeedbacks={ setFeedbacks }/>
     </Container>
     )
 }

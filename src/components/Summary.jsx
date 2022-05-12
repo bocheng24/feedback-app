@@ -1,7 +1,10 @@
-import React from 'react'
+import { useContext } from 'react'
 import { SummaryWrapper } from '../styled/SummaryWrapper.styled'
+import FeedbackContext from '../context/FeedbackContext'
 
-function Summary({ feedbacks }) {
+function Summary() {
+
+  const { feedbacks } = useContext(FeedbackContext)
 
   const getAvgRating = feedbacks => {
     let total = 0
